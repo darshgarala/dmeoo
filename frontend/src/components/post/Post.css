@@ -1,0 +1,72 @@
+.Post {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--cardColor);
+  border-radius: 1rem;
+  gap: 1rem;
+}
+
+.Post > img {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.Post > video {
+  width: 100%;
+  max-height: 20rem;
+  height: 2400px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.postReact {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.deletebtn {
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  width: 100px;
+  height: 40px;
+  transition: 1s;
+}
+.deletebtn:hover {
+  color: burlywood;
+  background-color: black;
+  border-radius: 7px;
+}
+
+.deletebtn:active {
+  background-color: red;
+  width: 110px;
+  height: 45px;
+}
+
+.profileforhome {
+  display: flex;
+  flex-direction: row;
+}
+.profileforhome h4 {
+  margin-left: 30px;
+  margin-top: 11px;
+  font-family: "Times New Roman", Times, serif;
+}
+.profileforhome > img:nth-of-type(1) {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  /* border: 7px solid white; */
+}
+
+.imgOfcomment {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+}

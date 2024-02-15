@@ -1,0 +1,24 @@
+.header {
+  height: 10vh;
+  background-color: antiquewhite;
+  border-radius: 50px;
+}
+.dbox {
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: rgb(204, 163, 163); */
+  /* border: 2px solid black; */
+  /* text-align: center; */
+  /* margin-left: 320px; */
+  /* margin-right: 120px; */
+  object-fit: contain;
+}
+.story {
+  border: 20px solid rgb(8, 28, 130);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
