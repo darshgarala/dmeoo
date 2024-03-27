@@ -7,9 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import * as UserApi from "../../api/UserRequest";
 import { logOut } from "../../actions/AuthAction";
-function InfoCard() {
+function InfoCard(location) {
   const [modelOpen, setModelopen] = useState(false);
-
+  console.log("usersearch", location.location.usersearch);
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -17,7 +17,6 @@ function InfoCard() {
   const [profileUser, setProfileUser] = useState({});
 
   const user = useSelector((state) => state.authRedecer.authData);
-  // console.log("info", user);
 
   useEffect(() => {
     const fetchProfileUser = async () => {
@@ -37,67 +36,70 @@ function InfoCard() {
     dispatch(logOut());
   };
   return (
-    <div className="InfoCard">
-      <div className="infoHead">
-        <h4>Profile Info</h4>
-        {/* <FontAwesomeIcon
-          style={{ cursor: "pointer", color: "var(--gray)", fontSize: "20px" }}
-          icon={faPenToSquare}
-          onClick={() => setModelopen(true)}
-        /> */}
-        <ProfileModel data={user} />
-      </div>
-      <div className="info">
-        <span>
-          <b>username</b>
-        </span>{" "}
-        <span>{profileUser.username}</span>
-      </div>
-      <div className="info">
-        <span>
-          <b>firstname</b>
-        </span>{" "}
-        <span>{profileUser.firstname}</span>
-      </div>
-      <div className="info">
-        <span>
-          <b>lastname</b>
-        </span>{" "}
-        <span>{profileUser.lastname}</span>
-      </div>
-      <div className="info">
-        <span>
-          <b>about</b>
-        </span>{" "}
-        <span>{profileUser.about}</span>
-      </div>
-      <div className="info">
-        <span>
-          <b>status</b>
-        </span>{" "}
-        <span>{profileUser.relationship}</span>
-      </div>
-      <div className="info">
-        <span>
-          <b>Lives in</b>
-        </span>{" "}
-        <span>{profileUser.livesin}</span>
-      </div>
-      <div className="info">
-        <span>
-          <b>Works at</b>
-        </span>{" "}
-        <span>{profileUser.worksAt}</span>
-      </div>
-      <div className="info">
-        <span>
-          <b>country</b>
-        </span>{" "}
-        <span>{profileUser.country}</span>
-      </div>
-      <button className="button logout-button" onClick={handleLogout}>
-        Logout
-      </button>
+    <div>
+      {location.location.usersearch == "searchuser" ? (
+        ""
+      ) : (
+        <>
+          <div className="InfoCard">
+            <div className="infoHead">
+              <h4>Profile Info</h4>
+              <ProfileModel data={user} />
+            </div>
+            <div className="info">
+              <span>
+                <b>username</b>
+              </span>{" "}
+              <span>{profileUser.username}</span>
+            </div>
+            <div className="info">
+              <span>
+                <b>firstname</b>
+              </span>{" "}
+              <span>{profileUser.firstname}</span>
+            </div>
+            <div className="info">
+              <span>
+                <b>lastname</b>
+              </span>{" "}
+              <span>{profileUser.lastname}</span>
+            </div>
+            <div className="info">
+              <span>
+                <b>about</b>
+              </span>{" "}
+              <span>{profileUser.about}</span>
+            </div>
+            <div className="info">
+              <span>
+                <b>status</b>
+              </span>{" "}
+              <span>{profileUser.relationship}</span>
+            </div>
+            <div className="info">
+              <span>
+                <b>Lives in</b>
+              </span>{" "}
+              <span>{profileUser.livesin}</span>
+            </div>
+            <div className="info">
+              <span>
+                <b>Works at</b>
+              </span>{" "}
+              <span>{profileUser.worksAt}</span>
+            </div>
+            <div className="info">
+              <span>
+                <b>country</b>
+              </span>{" "}
+              <span>{profileUser.country}</span>
+            </div>
+            <button className="button logout-button" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

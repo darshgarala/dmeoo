@@ -78,8 +78,8 @@ function PostShare() {
       <img
         src={
           user.data.profilePicture
-            ? `http://localhost:8000/images/${user.data.profilePicture}`
-            : "http://localhost:8000/images/defaultCover.png"
+            ? `https://social-media-webapplication-1.onrender.com/images/${user.data.profilePicture}`
+            : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
         }
         alt=""
       />

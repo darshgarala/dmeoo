@@ -22,7 +22,7 @@ const Post = ({ data, edit }) => {
   const myArray = data.image.split(".");
 
   console.log("data== ", data);
-
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -96,8 +96,8 @@ const Post = ({ data, edit }) => {
         <img
           src={
             data.userProfileImage
-              ? `http://localhost:8000/images/${data.userProfileImage}`
-              : "http://localhost:8000/images/defaultCover.png"
+              ? `https://social-media-webapplication-1.onrender.com/images/${data.userProfileImage}`
+              : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
           }
           alt=""
         />
@@ -113,14 +113,22 @@ const Post = ({ data, edit }) => {
             controls
             autoPlay
             loop
-            src={data.image ? `http://localhost:8000/images/${data.image}` : ""}
+            src={
+              data.image
+                ? `https://social-media-webapplication-1.onrender.com/images/${data.image}`
+                : ""
+            }
             type="video/mp4"
           ></video>
         </>
       ) : (
         <>
           <img
-            src={data.image ? `http://localhost:8000/images/${data.image}` : ""}
+            src={
+              data.image
+                ? `https://social-media-webapplication-1.onrender.com/images/${data.image}`
+                : ""
+            }
             alt=""
           />
         </>
@@ -180,8 +188,8 @@ const Post = ({ data, edit }) => {
                         className="imgOfcomment"
                         src={
                           record.profileImg
-                            ? `http://localhost:8000/images/${record.profileImg}`
-                            : "http://localhost:8000/images/defaultCover.png"
+                            ? `https://social-media-webapplication-1.onrender.com/images/${record.profileImg}`
+                            : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
                         }
                         alt=""
                       />

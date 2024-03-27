@@ -19,18 +19,22 @@ function RightSide() {
             style={{ gap: "0px", fontSize: "25px" }}
           />
         </Link>
-        <FontAwesomeIcon
-          icon={faGear}
-          style={{ gap: "0px", fontSize: "25px" }}
-        />
+        <Link to="/setting">
+          <FontAwesomeIcon
+            icon={faGear}
+            style={{ gap: "0px", fontSize: "25px" }}
+          />
+        </Link>
         <FontAwesomeIcon
           icon={faBell}
           style={{ gap: "0px", fontSize: "25px" }}
         />
-        <FontAwesomeIcon
-          icon={faMessage}
-          style={{ gap: "0px", fontSize: "25px" }}
-        />
+        <Link to="/chat">
+          <FontAwesomeIcon
+            icon={faMessage}
+            style={{ gap: "0px", fontSize: "25px" }}
+          />
+        </Link>
       </div>
       <TrendCard />
       <button className="button r-button">Share</button>

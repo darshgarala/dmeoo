@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:8000" });
+const API = axios.create({
+  baseURL: "https://social-media-webapplication-1.onrender.com",
+});
 
 export const getTimelinePost = (id) => API.get(`/post/${id}/timeline`);
 export const likePost = (id, userId) =>

@@ -24,16 +24,16 @@ function Story({ location }) {
   const stories = [
     {
       type: "image",
-      url: "http://localhost:8000/images/defaultCover.png",
+      url: "https://social-media-webapplication-1.onrender.com/images/defaultCover.png",
       duration: 1000,
     },
     {
       type: "image",
-      url: "http://localhost:8000/images/defaultCover1.jpg",
+      url: "https://social-media-webapplication-1.onrender.com/images/defaultCover1.jpg",
       duration: 1000,
     },
     {
-      url: "http://localhost:8000/images/1706123663880statue.mp4",
+      url: "https://social-media-webapplication-1.onrender.com/images/1706123663880statue.mp4",
       duration: 1000,
       type: "video",
     },

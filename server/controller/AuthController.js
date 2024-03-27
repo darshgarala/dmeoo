@@ -1,23 +1,24 @@
-import express from "express";
 import UserModel from "../model/userModel.js";
 import bcrypt, { hash } from "bcrypt";
 import jwt from "jsonwebtoken";
+
 // import JWT_KEY from ""
+
 export const registerUser = async (req, res) => {
   const { username, password, firstname, lastname } = req.body;
-
   const salt = await bcrypt.genSalt(10);
   const hashPass = await bcrypt.hash(password, salt);
   req.body.password = hashPass;
   const newUser = new UserModel(req.body);
-  // const {username} =
 
   try {
     const oldUser = await UserModel.findOne({ username: username });
     if (oldUser) {
       return res.status(200).send({ message: "username is already register" });
     }
+
     const user = await newUser.save();
+
     const token = jwt.sign(
       {
         username: user.username,
@@ -26,8 +27,10 @@ export const registerUser = async (req, res) => {
       process.env.JWT_KEY,
       { expiresIn: "1h" }
     );
-    console.log("=>", user);
-    console.log("=>", token);
+
+    // console.log("=>", user);
+    // console.log("=>", token);
+
     res
       .status(200)
       .send({ message: "register successfully", data: user, token });

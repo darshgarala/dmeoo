@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const Connection = async () => {
+  const dataUrl = process.env.MONGODB_URL;
   mongoose
-    .connect(`mongodb://localhost:27017/socialWeb`, {
+    .connect(dataUrl, {
       //   useNewUrlParser: true,
       //   useUnifiedTopology: true,
     })

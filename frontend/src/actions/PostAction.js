@@ -14,9 +14,12 @@ export const deleteApost = (id, userId) => async (dispatch) => {
     const data = {
       userId: userId,
     };
-    const data1 = await axios.delete(`http://localhost:8000/post/${id}`, {
-      data,
-    });
+    const data1 = await axios.delete(
+      `https://social-media-webapplication-1.onrender.com/post/${id}`,
+      {
+        data,
+      }
+    );
     console.log("back Data = >", data1.data.data);
     // dispatch({ type: "DELETE_POST_SUCCESS", data: data1.data.data });
   } catch (error) {

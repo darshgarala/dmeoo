@@ -6,7 +6,14 @@ const authRedecer = (
     case "AUTH_START":
       return { ...state, loading: true, error: false };
     case "AUTH_SUCCESS":
-      localStorage.setItem("profile", JSON.stringify({ ...action?.data }));
+      const itemStr = localStorage.setItem(
+        "profile",
+        JSON.stringify({ ...action?.data })
+      );
+      const timeToWait = 60 * 1000;
+      setTimeout(() => {
+        localStorage.removeItem("profile");
+      }, timeToWait);
       return { ...state, authData: action.data, loading: false, error: false };
     case "AUTH_FAIL":
       return { ...state, loading: false, error: true };
@@ -17,8 +24,6 @@ const authRedecer = (
         "profile",
         JSON.stringify({ ...action?.data?.data })
       );
-      // console.log("...action?.data= ", ...action?.data);
-      console.log("yse");
       return {
         ...state,
         authData: action.data.data,
@@ -29,8 +34,6 @@ const authRedecer = (
     case "UPDATING_FAIL":
       return { ...state, updateLoading: false, error: true };
     case "FOLLOW_USER":
-      console.log("object 1");
-      // console.log("=> ", ...state.authData);
       return {
         ...state,
         authData: {
@@ -43,8 +46,6 @@ const authRedecer = (
       };
 
     case "UNFOLLOW_USER":
-      console.log("object 2");
-
       return {
         ...state,
         authData: {

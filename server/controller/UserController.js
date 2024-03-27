@@ -6,6 +6,7 @@ import PostModel from "../model/postModel.js";
 
 export const getUser = async (req, res) => {
   const id = req.params.id;
+  console.log("id= > ", id);
   try {
     const user = await UserModel.findById(id);
     if (user) {
@@ -40,6 +41,7 @@ export const updateUser = async (req, res) => {
       process.env.JWT_KEY,
       { expiresIn: "1h" }
     );
+
     console.log("yes");
 
     let AllPost = await PostModel.find({});
@@ -50,7 +52,7 @@ export const updateUser = async (req, res) => {
       post1.comments = post1.comments.map((comment) => {
         if (comment.name === user.username) {
           comment.profileImg = req.body?.profilePicture;
-        }
+        } 
         return comment;
       });
 
@@ -114,7 +116,6 @@ export const deleteUser = async (req, res) => {
   if (id === currentUserId || currentUserAdminStatus) {
     try {
       const user = await UserModel.findByIdAndDelete(id);
-
       res.status(200).send({ message: "delete user successfully" });
     } catch (error) {
       res.status(500).send({ message: "some error accure" });

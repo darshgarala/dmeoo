@@ -16,8 +16,6 @@ export const createPost = async (req, res) => {
 };
 
 export const createImgStory = async (req, res) => {
-  // console.log(" = ", req.body.img);
-  // const image = req.body.img;
   const newPost = new StoryModel(req.body);
   try {
     console.log("story");
@@ -27,8 +25,10 @@ export const createImgStory = async (req, res) => {
     res.status(500).send({ message: "some error accure." });
   }
 };
+ 
 // getAllPost
 export const getAllPost = async (req, res) => {
+  console.log("object");
   try {
     const post = await PostModel.find({});
     res.status(200).send({ message: "get all user all posts", data: post });
@@ -72,9 +72,9 @@ export const updatePost = async (req, res) => {
 
 export const datelePost = async (req, res) => {
   const id = req.params.id; //post id
-  // console.log(" userid ==> ", req.body);
   const { userId } = req.body;
   console.log("Delete ==> ", id);
+  
   try {
     const post = await PostModel.findById(id);
     // console.log("id = ", id, " userId =", userId);

@@ -6,7 +6,6 @@ export const logIn = (formData) => async (dispatch) => {
   dispatch({ type: "AUTH_START" });
   try {
     const { data } = await AuthApi.logIn(formData);
-    console.log("data = ", data);
     dispatch({ type: "AUTH_SUCCESS", data: data });
     toast.success("Login Successfully");
   } catch (error) {
@@ -20,15 +19,17 @@ export const signUp = (formData) => async (dispatch) => {
   dispatch({ type: "AUTH_START" });
   try {
     const { data } = await AuthApi.signUp(formData);
+    
+    console.log("data = ", data);
+
     dispatch({ type: "AUTH_SUCCESS", data: data });
-    console.log("data: ", data);
     if (data.message === "username is already register") {
       toast.error("username is already register");
     } else if (data.message === "register successfully") {
       toast.success("register successfully");
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     dispatch({ type: "AUTH_FAIL" });
   }
 };

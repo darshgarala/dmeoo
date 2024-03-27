@@ -13,18 +13,29 @@ function Posts({ location }) {
   const user = useSelector((state) => state.authRedecer.authData);
   const { posts, loading } = useSelector((state) => state.postReducer);
   const [getAllpost, setgetAllpost] = useState([]);
+
+  const [currentUser, setCurrentUser] = useState([]);
+
   useEffect(() => {
     async function getData() {
       dispatch(getTimelinePost(user.data._id));
-      // const data = await axios.get("http://localhost:8000/post/allpost");
       const data = await getAllPost();
-      // console.log("all post", data);
+      // console.log("getAllPost = > data ", data.data.data);
       setgetAllpost(data.data.data);
+      // console.log("fsF",data);
+      const data1 = data?.data?.data?.filter((data) => {
+        // console.log("asdfa", data);
+        return  data.userId === user.data._id;
+      });
+      // console.log("fafgar",data1);
+      setCurrentUser([...currentUser, ...data1])
     }
-
     getData();
+    // console.log("getAllPost = > ", getAllPost);
   }, []);
-  
+
+  // console.log("location = ", getAllPost);
+
   return (
     <div className="Posts">
       {loading ? (
@@ -39,7 +50,7 @@ function Posts({ location }) {
           </div>
         </>
       ) : location === "profilepage" ? (
-        posts.data?.map((post, id) => {
+        currentUser?.map((post, id) => {
           return <Post data={post} edit={"yes"} key={id} />;
         })
       ) : (
