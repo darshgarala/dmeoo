@@ -96,8 +96,8 @@ const Post = ({ data, edit }) => {
         <img
           src={
             data.userProfileImage
-              ? `https://social-media-webapplication-1.onrender.com/images/${data.userProfileImage}`
-              : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
+              ? `http://localhost:8000/images/${data.userProfileImage}`
+              : "http://localhost:8000/images/defaultCover.png"
           }
           alt=""
         />
@@ -115,7 +115,7 @@ const Post = ({ data, edit }) => {
             loop
             src={
               data.image
-                ? `https://social-media-webapplication-1.onrender.com/images/${data.image}`
+                ? `http://localhost:8000/images/${data.image}`
                 : ""
             }
             type="video/mp4"
@@ -126,7 +126,7 @@ const Post = ({ data, edit }) => {
           <img
             src={
               data.image
-                ? `https://social-media-webapplication-1.onrender.com/images/${data.image}`
+                ? `http://localhost:8000/images/${data.image}`
                 : ""
             }
             alt=""
@@ -188,8 +188,8 @@ const Post = ({ data, edit }) => {
                         className="imgOfcomment"
                         src={
                           record.profileImg
-                            ? `https://social-media-webapplication-1.onrender.com/images/${record.profileImg}`
-                            : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
+                            ? `http://localhost:8000/images/${record.profileImg}`
+                            : "http://localhost:8000/images/defaultCover.png"
                         }
                         alt=""
                       />

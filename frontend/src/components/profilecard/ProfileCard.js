@@ -35,8 +35,8 @@ function ProfileCard({ location, usersearch }) {
                     className="wrapperBox1"
                     src={
                       userstate.data.profilePicture
-                        ? `https://social-media-webapplication-1.onrender.com/images/${userstate.data.profilePicture}`
-                        : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
+                        ? `http://localhost:8000/images/${userstate.data.profilePicture}`
+                        : "http://localhost:8000/images/defaultCover.png"
                     }
                     alt=""
                   />
@@ -50,8 +50,8 @@ function ProfileCard({ location, usersearch }) {
                   className="wrapperBox"
                   src={
                     userstate.data.profilePicture
-                      ? `https://social-media-webapplication-1.onrender.com/images/${userstate.data.profilePicture}`
-                      : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
+                      ? `http://localhost:8000/images/${userstate.data.profilePicture}`
+                      : "http://localhost:8000/images/defaultCover.png"
                   }
                   alt=""
                 />

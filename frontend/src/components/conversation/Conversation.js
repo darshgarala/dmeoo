@@ -27,8 +27,8 @@ const Conversation = ({ data, currentUserId }) => {
           <img
             src={
               userData?.profilePicture
-                ? `https://social-media-webapplication-1.onrender.com/images/${userData.profilePicture}`
-                : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
+                ? `http://localhost:8000/images/${userData.profilePicture}`
+                : "http://localhost:8000/images/defaultCover.png"
             }
             alt=""
           />

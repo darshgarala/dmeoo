@@ -38,8 +38,8 @@ const User = ({ person, userId }) => {
             className="followersimg"
             src={
               person.profilePicture
-                ? `https://social-media-webapplication-1.onrender.com/images/${person.profilePicture}`
-                : "https://social-media-webapplication-1.onrender.com/images/defaultCover.png"
+                ? `http://localhost:8000/images/${person.profilePicture}`
+                : "http://localhost:8000/images/defaultCover.png"
             }
             alt=""
           />

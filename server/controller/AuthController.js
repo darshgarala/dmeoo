@@ -18,6 +18,7 @@ export const registerUser = async (req, res) => {
     }
 
     const user = await newUser.save();
+    // console.log(user);
 
     const token = jwt.sign(
       {
